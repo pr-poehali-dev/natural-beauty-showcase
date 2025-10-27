@@ -98,16 +98,16 @@ export default function Index() {
 
   return (
     <div className="min-h-screen bg-background font-sans">
-      <nav className="fixed top-0 w-full bg-background/95 backdrop-blur-sm z-50 border-b border-border/40">
-        <div className="max-w-7xl mx-auto px-6 py-4">
+      <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-md z-50">
+        <div className="max-w-[1400px] mx-auto px-8 py-6">
           <div className="flex items-center justify-between">
             <button 
               onClick={() => scrollToSection('home')}
-              className="font-cormorant text-2xl font-semibold text-foreground hover:text-foreground/80 transition-colors"
+              className="text-sm font-medium tracking-[0.2em] uppercase text-foreground hover:text-foreground/60 transition-colors"
             >
-              Фотограф
+              ГАЙКА
             </button>
-            <div className="hidden md:flex gap-8">
+            <div className="hidden md:flex gap-10">
               {[
                 { id: 'portfolio', label: 'Портфолио' },
                 { id: 'about', label: 'Обо мне' },
@@ -119,16 +119,13 @@ export default function Index() {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`text-sm transition-colors relative ${
+                  className={`text-xs tracking-widest uppercase transition-colors ${
                     activeSection === item.id 
-                      ? 'text-foreground font-medium' 
+                      ? 'text-foreground' 
                       : 'text-muted-foreground hover:text-foreground'
                   }`}
                 >
                   {item.label}
-                  {activeSection === item.id && (
-                    <span className="absolute -bottom-1 left-0 w-full h-px bg-foreground" />
-                  )}
                 </button>
               ))}
             </div>
@@ -136,47 +133,43 @@ export default function Index() {
         </div>
       </nav>
 
-      <section id="home" className="min-h-screen flex items-center justify-center px-6 pt-20">
-        <div className="max-w-4xl mx-auto text-center animate-fade-in">
-          <h1 className="font-cormorant text-5xl md:text-7xl font-light text-foreground mb-6 leading-tight">
+      <section id="home" className="min-h-screen relative flex items-center justify-center">
+        <div className="absolute inset-0">
+          <img
+            src="https://cdn.poehali.dev/projects/62172cfa-b2d1-49fe-bf83-4c483607bb37/files/3232f96a-5738-433b-a774-321ac2297377.jpg"
+            alt="Hero"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/20" />
+        </div>
+        <div className="relative z-10 text-center text-white px-6 animate-fade-in">
+          <h1 className="font-cormorant text-6xl md:text-8xl font-light mb-8 leading-tight tracking-wide">
             Хочу всю жизнь показывать людям,<br />какие они красивые
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto">
-            За естественность, непостановочность, жизнь во всех проявлениях
+          <p className="text-base md:text-lg tracking-widest uppercase opacity-90">
+            Фотография · Эмоции · Естественность
           </p>
-          <Button 
-            onClick={() => scrollToSection('portfolio')}
-            size="lg"
-            className="bg-primary text-primary-foreground hover:bg-primary/90 font-medium"
-          >
-            Посмотреть работы
-          </Button>
         </div>
       </section>
 
-      <section id="portfolio" className="py-24 px-6">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="font-cormorant text-4xl md:text-5xl font-light text-center mb-16">
+      <section id="portfolio" className="py-32 px-8">
+        <div className="max-w-[1400px] mx-auto">
+          <h2 className="text-xs tracking-[0.3em] uppercase text-center mb-20 text-muted-foreground">
             Портфолио
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
             {portfolioImages.map((image, index) => (
               <div 
                 key={index}
-                className="group relative overflow-hidden rounded-sm cursor-pointer animate-fade-in"
+                className="break-inside-avoid group cursor-pointer animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="aspect-[3/4] relative">
+                <div className="relative overflow-hidden">
                   <img
                     src={image.url}
                     alt={image.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="w-full h-auto transition-all duration-500 group-hover:scale-[1.02]"
                   />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                  <p className="text-sm opacity-80 mb-1">{image.category}</p>
-                  <p className="font-cormorant text-xl">{image.title}</p>
                 </div>
               </div>
             ))}
@@ -184,9 +177,9 @@ export default function Index() {
         </div>
       </section>
 
-      <section id="about" className="py-24 px-6 bg-accent/30">
+      <section id="about" className="py-32 px-8">
         <div className="max-w-4xl mx-auto">
-          <h2 className="font-cormorant text-4xl md:text-5xl font-light text-center mb-12">
+          <h2 className="text-xs tracking-[0.3em] uppercase text-center mb-20 text-muted-foreground">
             Обо мне
           </h2>
           <div className="max-w-3xl mx-auto space-y-6 text-muted-foreground leading-relaxed">
@@ -262,9 +255,9 @@ export default function Index() {
         </div>
       </section>
 
-      <section id="services" className="py-24 px-6">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="font-cormorant text-4xl md:text-5xl font-light text-center mb-16">
+      <section id="services" className="py-32 px-8 bg-muted/30">
+        <div className="max-w-[1400px] mx-auto">
+          <h2 className="text-xs tracking-[0.3em] uppercase text-center mb-20 text-muted-foreground">
             Услуги
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -287,9 +280,9 @@ export default function Index() {
         </div>
       </section>
 
-      <section id="pricing" className="py-24 px-6 bg-accent/30">
+      <section id="pricing" className="py-32 px-8">
         <div className="max-w-5xl mx-auto">
-          <h2 className="font-cormorant text-4xl md:text-5xl font-light text-center mb-16">
+          <h2 className="text-xs tracking-[0.3em] uppercase text-center mb-20 text-muted-foreground">
             Прайс
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -321,9 +314,9 @@ export default function Index() {
         </div>
       </section>
 
-      <section id="reviews" className="py-24 px-6">
+      <section id="reviews" className="py-32 px-8 bg-muted/30">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-cormorant text-4xl md:text-5xl font-light text-center mb-16">
+          <h2 className="text-xs tracking-[0.3em] uppercase text-center mb-20 text-muted-foreground">
             Отзывы
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -349,10 +342,10 @@ export default function Index() {
         </div>
       </section>
 
-      <section id="contact" className="py-24 px-6 bg-accent/30">
+      <section id="contact" className="py-32 px-8">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="font-cormorant text-4xl md:text-5xl font-light mb-8">
-            Свяжитесь со мной
+          <h2 className="text-xs tracking-[0.3em] uppercase mb-20 text-muted-foreground">
+            Контакты
           </h2>
           <p className="text-muted-foreground mb-12 text-lg">
             Готов ответить на все вопросы и обсудить детали съёмки
