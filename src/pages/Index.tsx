@@ -36,19 +36,34 @@ export default function Index() {
 
   const portfolioImages = [
     {
-      url: 'https://cdn.poehali.dev/projects/62172cfa-b2d1-49fe-bf83-4c483607bb37/files/1c1c15db-66c7-489c-908c-10c5ae751fcf.jpg',
-      title: 'Естественный портрет',
+      url: 'https://cdn.poehali.dev/files/b1683c84-4088-414f-874b-25317fa2c82a.jpg',
+      title: 'Искренняя улыбка',
       category: 'Портрет'
     },
     {
-      url: 'https://cdn.poehali.dev/projects/62172cfa-b2d1-49fe-bf83-4c483607bb37/files/30e2abfc-7ab0-4093-a374-b5073c5e8cbd.jpg',
-      title: 'Искренние эмоции',
-      category: 'Репортаж'
+      url: 'https://cdn.poehali.dev/files/c35861bd-50be-40b0-ba95-c0ba6ff19f8d.jpg',
+      title: 'Мама и сын',
+      category: 'Семейная'
     },
     {
-      url: 'https://cdn.poehali.dev/projects/62172cfa-b2d1-49fe-bf83-4c483607bb37/files/db118afc-3299-4a26-92e4-1e23a4f9a609.jpg',
-      title: 'Love Story',
-      category: 'Пары'
+      url: 'https://cdn.poehali.dev/files/8dcbf45a-d559-43a4-8406-4f305e3a68ee.jpg',
+      title: 'Детский портрет',
+      category: 'Дети'
+    },
+    {
+      url: 'https://cdn.poehali.dev/files/f61a02f2-6d4f-42f8-8486-e07d624f3c16.jpg',
+      title: 'Маленькая балерина',
+      category: 'Дети'
+    },
+    {
+      url: 'https://cdn.poehali.dev/files/75e53a58-8aaf-4acb-89c0-10d8f06cf961.jpg',
+      title: 'Сказочный образ',
+      category: 'Дети'
+    },
+    {
+      url: 'https://cdn.poehali.dev/files/1bb14684-fe49-4788-98b5-a1253de00999.jpg',
+      title: 'Нежность',
+      category: 'Семейная'
     }
   ];
 
