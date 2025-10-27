@@ -8,7 +8,7 @@ export default function Index() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'portfolio', 'about', 'services', 'pricing', 'contact'];
+      const sections = ['home', 'portfolio', 'about', 'services', 'pricing', 'reviews', 'contact'];
       const scrollPosition = window.scrollY + window.innerHeight / 3;
 
       for (const section of sections) {
@@ -113,6 +113,7 @@ export default function Index() {
                 { id: 'about', label: 'Обо мне' },
                 { id: 'services', label: 'Услуги' },
                 { id: 'pricing', label: 'Прайс' },
+                { id: 'reviews', label: 'Отзывы' },
                 { id: 'contact', label: 'Контакты' }
               ].map((item) => (
                 <button
@@ -320,7 +321,35 @@ export default function Index() {
         </div>
       </section>
 
-      <section id="contact" className="py-24 px-6">
+      <section id="reviews" className="py-24 px-6">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="font-cormorant text-4xl md:text-5xl font-light text-center mb-16">
+            Отзывы
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Card className="p-8 border-border/50 hover:border-border transition-colors animate-fade-in">
+              <div className="mb-6">
+                <Icon name="Quote" size={32} className="text-primary/40" />
+              </div>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Энергия, то живое что в тебе есть, твой подход это то, что позволяет расслабиться и не думать о результате. 
+                То самое, что нужно всем, кто страдает перфекционизмом и постоянно думает о том, как он выглядит со стороны
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center">
+                  <Icon name="User" size={20} className="text-muted-foreground" />
+                </div>
+                <div>
+                  <p className="font-medium text-foreground">Клиент</p>
+                  <p className="text-sm text-muted-foreground">Портретная съёмка</p>
+                </div>
+              </div>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" className="py-24 px-6 bg-accent/30">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="font-cormorant text-4xl md:text-5xl font-light mb-8">
             Свяжитесь со мной
